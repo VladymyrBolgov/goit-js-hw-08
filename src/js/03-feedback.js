@@ -21,7 +21,6 @@ function findInputValues(evt) {
     localStorage.setItem('feedback-form-state', JSON.stringify(formData));
 }
   
-//----------------
 
 const onFormSubmit = event => {
     event.preventDefault();
