@@ -10,8 +10,8 @@ checkLocaleStorage();
 emailElement.addEventListener('input', throttle(findInputValues, 500));
 messageElement.addEventListener('input', throttle(findInputValues, 500));
 
-function findInputValues(evt) {
-    evt.preventDefault();
+function findInputValues(event) {
+    event.preventDefault();
 
     const name = event.target.name;
     const value = event.target.value;
@@ -21,7 +21,6 @@ function findInputValues(evt) {
     localStorage.setItem('feedback-form-state', JSON.stringify(formData));
 }
   
-
 const onFormSubmit = event => {
     event.preventDefault();
     
