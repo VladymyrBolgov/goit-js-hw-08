@@ -1,6 +1,7 @@
 import throttle from 'lodash.throttle';
 
 const form = document.querySelector('.feedback-form');
+
 const emailElement = document.querySelector('input');
 const messageElement = document.querySelector('textarea');
 const formData = {};
@@ -21,7 +22,7 @@ function findInputValues(event) {
     localStorage.setItem('feedback-form-state', JSON.stringify(formData));
 }
   
-const onFormSubmit = event => {
+function onFormSubmit (event) {
     event.preventDefault();
     
     const email = event.target.elements.email.value;
@@ -29,12 +30,12 @@ const onFormSubmit = event => {
     
     if (email === '' || message === '') {
         alert('Пожалуйста, заполните все поля!')
-    } else {
+    } 
     localStorage.removeItem('feedback-form-state');   
     console.log({ email, message })
-}
-    event.currentTarget.reset()
-}
+    form.reset()
+    return
+};
 form.addEventListener("submit", onFormSubmit);
 
 //--------------------
