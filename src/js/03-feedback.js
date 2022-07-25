@@ -22,7 +22,7 @@ function findInputValues(event) {
     localStorage.setItem('feedback-form-state', JSON.stringify(formData));
 }
   
-function onFormSubmit (event) {
+const onFormSubmit = event => {
     event.preventDefault();
     
     const email = event.target.elements.email.value;
@@ -30,12 +30,12 @@ function onFormSubmit (event) {
     
     if (email === '' || message === '') {
         alert('Пожалуйста, заполните все поля!')
-    } 
+    } else {
     localStorage.removeItem('feedback-form-state');   
     console.log({ email, message })
-    form.reset()
-    return
-};
+}
+    event.currentTarget.reset()
+}
 form.addEventListener("submit", onFormSubmit);
 
 //--------------------
