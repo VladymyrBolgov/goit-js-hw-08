@@ -41,7 +41,7 @@ function checkingLocaleStorage() {
     if (formData) {
         formData = JSON.parse(formData);
         Object.entries(formData).forEach(([name, value]) => {
-            form.elements[name].value = value
+            form.elements[name].value = value;
         })
     }
 }
