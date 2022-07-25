@@ -40,11 +40,14 @@ form.addEventListener("submit", onFormSubmit);
 
 //--------------------
 function checkLocaleStorage() {
-    const storageData = JSON.parse(localStorage.getItem('feedback-form-state'));
-       
-    if (storageData) {
-        form.emailElement.value = storageData.email;
-        form.messageElement.value = storageData.message;
+    const storageData = localStorage.getItem('feedback-form-state')
+        ? JSON.parse(localStorage.getItem('feedback-form-state'))
+        : {};
+    if (storageData.email) {
+        emailElement.value = storageData.email;
+    }
+    if (storageData.message) {
+        messageElement.value = storageData.message;
     }
 }
  
